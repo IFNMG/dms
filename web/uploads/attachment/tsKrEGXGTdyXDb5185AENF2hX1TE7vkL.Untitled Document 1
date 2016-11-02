@@ -1,0 +1,343 @@
+<?php
+
+$user = Mage::getSingleton('customer/session')->getId();
+$vet = Mage::getModel('marketplace/vet')->getCollection()->addFieldToFilter('seller_id',array('eq'=>$user));
+$clinic = Mage::getModel('marketplace/clinic')->getCollection()->addFieldToFilter('vet_id',array('eq'=>$user));
+$vet_clinic = array();
+foreach ($vet as $value) {
+    $clinicId = "";
+    $schedule = Mage::getModel('marketplace/schedule')->getCollection()->addFieldToFilter('vet_id',array('eq'=>$value->getVetId()));
+    foreach ($schedule as $each) {
+        $clinicId = $clinicId .' ,.'. $each->getClinicId();
+
+    }
+    $vet_clinic[$value->getVetId()] = $clinicId;
+
+}
+// echo "<pre>";
+// print_r($vet_clinic);
+
+ echo $this->getMessagesBlock()->getGroupedHtml();
+ ?>
+ <script src="http://maps.googleapis.com/maps/api/js"></script>
+<form action="<?php echo $this->getUrl('marketplace/schedule/saveschedule') ?>" id="saveschedule" method="post" class="scaffold-form" enctype="multipart/form-data">
+    <div class="fieldset">
+        <h2 class="legend">Add New Schedule</h2>
+        <p class="required">* Required Fields</p>
+        <ul class="form-list">
+            <li class="">               
+                <input name="seller_id" id="seller_id" title="User_id" type="hidden" value="<?php echo $user; ?>" >
+                <div class="field">
+                    <label for="name" class="required"><em>*</em>Vet Name</label>
+                    <div class="input-box">
+                        <select name="vet_id" class="vet_id">
+                            <option value="">Please select Vet</option>
+                            <?php foreach ($vet as $value) { ?>                                
+                                <option clinic="<?php echo $vet_clinic[$value->getvetId()]?>" value="<?php echo $value->getvetId()?>" ><?php  echo $value->getFname().' '.$value->getLname();?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+            </li>
+            <li class="">               
+                <div class="field">
+                    <label for="name" class="required"><em>*</em>Clinic Name</label>
+                    <div class="input-box">
+                        <select name="clinic_id" class="clinic_id">
+                            <option value="">Please select Clinic</option>
+                            <?php foreach ($clinic as $value) { ?>
+                                <option style="display:none;" class="<?php echo $value->getClinicId()?>" value="<?php echo $value->getClinicId()?>" ><?php  echo $value->getClinicName();?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+            </li>
+            <li class="">               
+                <div class="field">
+                    <label for="name" class="required"><em>*</em>Time Slot</label>
+                    <div class="input-box">
+                        <select name="timeslot" class="timeslot">
+                                <option value="5">5 Minutes</option>
+                                <option value="10">10 Minutes</option>
+                                <option value="15">15 Minutes</option>
+                                <option value="20">20 Minutes</option>
+                                <option value="25">25 Minutes</option>
+                                <option value="30">30 Minutes</option>
+                        </select>
+                    </div>
+                </div>
+            </li>
+            <li class="">               
+                <div class="field">
+                    <label for="name" class="required"><em>*</em>Fees(in INR)</label>
+                    <div class="input-box">
+                        <input name="fees" id="fees" title="Fees" value="" class="input-text required-entry" type="text">
+                    </div>
+                </div>
+            </li>
+            <li class="">               
+                <div class="scheduledata">
+                    <label for="name" class="required"><em>*</em>Schedule</label>
+                    <div class="input-box">
+                        <div class="each_slot">
+                            <select name="day[]" class="day">
+                                <option value="">Day</option>
+                                <option value="sun">Sunday</option>
+                                <option value="mon">Monday</option>
+                                <option value="tue">Tuesday</option>
+                                <option value="wed">Wednesday</option>
+                                <option value="thu">Thursday</option>
+                                <option value="fri">Friday</option>
+                                <option value="sat">Saturday</option>
+                            </select>
+                            <div class="each_slot_start">
+                                Start Time : <select name="start_hour[]" class="start_hour" onclick="changedata(this)">
+                                                <option value="">Hours</option>
+                                                <?php for ($i=0; $i < 24; $i++) { 
+                                                    ?>
+                                                    <option value="<?php echo sprintf("%02d", $i); ?>"><?php echo $i;?></option>
+                                                    <?php
+                                                }?>
+                                            </select>
+                                            <select name="start_min[]" class="start_min" onclick="changedata(this)">
+                                                <option value="">Minutes</option>
+                                                <?php for ($i=0; $i < 56; $i++) { 
+                                                    ?>
+                                                    <option value="<?php echo sprintf("%02d", $i); ?>"><?php echo $i; $i = $i + 4;?></option>
+                                                    <?php
+                                                }?>
+                                            </select>
+                            </div>
+                            <div class="each_slot_end">
+                                End Time : <select name="end_hour[]" class="end_hour" onclick="changedata(this)">
+                                                <option value="">Hours</option>
+                                                <?php for ($i=0; $i < 24; $i++) { 
+                                                    ?>
+                                                    <option value="<?php echo sprintf("%02d", $i); ?>"><?php echo $i;?></option>
+                                                    <?php
+                                                }?>
+                                            </select>
+                                            <select name="end_min[]" class="end_min" onclick="changedata(this)">
+                                                <option value="">Minutes</option>
+                                                <?php for ($i=0; $i < 56; $i++) { 
+                                                    ?>
+                                                    <option value="<?php echo sprintf("%02d", $i); ?>"><?php echo $i; $i = $i + 4;?></option>
+                                                    <?php
+                                                }?>
+                                            </select>
+                            </div>
+                            
+                        </div>
+                        
+                            <div class="extra_slot" style="display:none">
+                                <div class="each_slot"> 
+                                <select name="day[]" class="day" onclick="changeday(this)">
+                                    <option value="">Day</option>
+                                    <option value="sun">Sunday</option>
+                                    <option value="mon">Monday</option>
+                                    <option value="tue">Tuesday</option>
+                                    <option value="wed">Wednesday</option>
+                                    <option value="thu">Thursday</option>
+                                    <option value="fri">Friday</option>
+                                    <option value="sat">Saturday</option>
+                                </select>
+                                <div class="each_slot_start">
+                                    Start Time : <select name="start_hour[]" class="start_hour" onclick="changedata(this)">
+                                                    <option value="">Hours</option>
+                                                    <?php for ($i=0; $i < 24; $i++) { 
+                                                        ?>
+                                                        <option value="<?php echo sprintf("%02d", $i); ?>"><?php echo $i;?></option>
+                                                        <?php
+                                                    }?>
+                                                </select>
+                                                <select name="start_min[]" class="start_min" onclick="changedata(this)">
+                                                    <option value="">Minutes</option>
+                                                    <?php for ($i=0; $i < 56; $i++) { 
+                                                        ?>
+                                                        <option value="<?php echo sprintf("%02d", $i); ?>"><?php echo $i; $i = $i + 4;?></option>
+                                                        <?php
+                                                    }?>
+                                                </select>
+                                </div>
+                                <div class="each_slot_end">
+                                    End Time : <select name="end_hour[]" class="end_hour" onclick="changedata(this)">
+                                                    <option value="">Hours</option>
+                                                    <?php for ($i=0; $i < 24; $i++) { 
+                                                        ?>
+                                                        <option value="<?php echo sprintf("%02d", $i); ?>"><?php echo $i;?></option>
+                                                        <?php
+                                                    }?>
+                                                </select>
+                                                <select name="end_min[]" class="end_min" onclick="changedata(this)">
+                                                    <option value="">Minutes</option>
+                                                    <?php for ($i=0; $i < 56; $i++) { 
+                                                        ?>
+                                                        <option value="<?php echo sprintf("%02d", $i); ?>"><?php echo $i; $i = $i + 4;?></option>
+                                                        <?php
+                                                    }?>
+                                                </select>
+                                </div>
+                                <span class="removeslot" onclick="removethis(this)">Remove</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="addmore" style="clear:both;">Add More</div>
+                </div>
+            </li>
+          
+          
+        </ul>
+    </div>
+    <div class="buttons-set">
+        <button type="submit" title="Submit" class="button"><span><span>Submit</span></span></button>
+    </div>
+</form>
+
+<script type="text/javascript">
+//<![CDATA[
+    var theForm = new VarienForm('saveclinic', true);
+//]]>   
+jQuery(".addmore").click(function(){
+    jQuery(".scheduledata > .input-box").append(jQuery(".extra_slot").html());
+});
+function removethis(thisthis){
+    jQuery(thisthis).parent().remove();
+}
+jQuery(".each_slot_start,.each_slot_end").attr("total",0);
+// jQuery(".each_slot > div > select").change(function(){
+// // jQuery(". scheduledata").on('change', ' select', function() {
+//     if(jQuery(this).val()!='' && jQuery(this).siblings('select').val()!=''){
+//         jQuery(this).parent().attr("total",jQuery(this).val()*jQuery(this).siblings('select').val());
+//         var thisthis = jQuery(this);
+//         thisthis.parent().parent().addClass("current");
+//         jQuery(".input-box > .each_slot").each(function(){
+//             // alert(thisthis.parent().parent().attr('class')+'-'+jQuery(this).attr("class"));
+//             // alert((thisthis.parent().parent().find(".day").val()+'--'+jQuery(this).find(".day").val())+'=='+(jQuery(this).is(':not(.current)')))
+//             if((thisthis.parent().parent().find(".day").val()==jQuery(this).find(".day").val()) && (jQuery(this).is(':not(.current)'))) {
+//                 if(jQuery(this).find('.each_slot_start').attr("total")<jQuery(this).parent().attr("total") && jQuery(this).parent().attr("total")<jQuery(this).find('.each_slot_start').attr("total")){
+//                     alert(jQuery(this).find('.each_slot_start').attr("total")+'--'+thisthis.parent().attr("total")+'--'+jQuery(this).find('.each_slot_start').attr("total"));
+//                 }
+//                 // alert(thisthis.parent().parent().attr('class')+'-'+jQuery(this).attr("class"));
+//             }
+//         });
+        
+//     }
+//     alert('all');
+// });
+jQuery(".vet_id").change(function(){
+    jQuery(".clinic_id option").show();
+    // alert(jQuery(this).find('option:selected').attr("clinic"));
+    jQuery(jQuery(this).find('option:selected').attr("clinic")).hide();
+});
+function changedata(thisthis){
+// jQuery(". scheduledata").on('change', ' select', function() {
+    if(jQuery(thisthis).val()!='' && jQuery(thisthis).siblings('select').val()!=''){
+        jQuery(thisthis).parent().attr("total",leftPad(jQuery(thisthis).parent().find('select').eq(0).val(), 2)+leftPad(jQuery(thisthis).parent().find('select').eq(1).val()),2);
+        var thisthisall = jQuery(thisthis);
+        thisthisall.parent().parent().addClass("current");
+        jQuery(".input-box > .each_slot").each(function(){
+            // alert(thisthisall.parent().parent().attr('class')+'-'+jQuery(this).attr("class"));
+            // alert((thisthisall.parent().parent().find(".day").val()+'--'+jQuery(this).find(".day").val())+'=='+(jQuery(this).is(':not(.current)')))
+            if((thisthisall.parent().parent().find(".day").val()==jQuery(this).find(".day").val()) && (jQuery(this).is(':not(.current)'))) {
+                if(jQuery(this).find('.each_slot_start').attr("total")<thisthisall.parent().attr("total") && thisthisall.parent().attr("total")<jQuery(this).find('.each_slot_end').attr("total")){
+                    // alert(jQuery(this).find('.each_slot_start').attr("total")+'--'+thisthisall.parent().attr("total")+'--'+jQuery(this).find('.each_slot_end').attr("total"));
+                    alert("Time mismatch");
+                    jQuery(thisthis).val('');
+                    return;
+                    // jQuery(thisthis).siblings('select').val('');
+                }else if(
+                        (thisthisall.parent().parent().find('div').eq(0).attr("total") < jQuery(this).find(".each_slot_start").attr('total')) && 
+                        (jQuery(this).find(".each_slot_start").attr('total') < jQuery(this).find(".each_slot_end").attr('total')) && 
+                        (jQuery(this).find(".each_slot_end").attr('total') < thisthisall.parent().parent().find('div').eq(1).attr("total"))) {
+                    alert("Time Mismatch");
+                }
+                // alert(thisthisall.parent().parent().attr('class')+'-'+jQuery(this).attr("class"));
+                // alert("tst");
+            }
+        });
+        thisthisall.parent().parent().removeClass("current");
+         // alert('all');
+        if(jQuery(thisthis).parent().parent().find('.each_slot_start').attr("total")>jQuery(thisthis).parent().parent().find('.each_slot_end').attr("total") && jQuery(thisthis).parent().parent().find('.each_slot_end').attr("total")>0){
+            alert("End time should be greater than Start Time");
+            jQuery(thisthis).val('');
+            return;
+            // jQuery(thisthis).siblings('select').val('');
+        }
+    }else{
+        jQuery(thisthis).parent().attr("total",0);
+    }
+    if(jQuery(thisthis).val()!='' && jQuery(thisthis).siblings('select').val()==''){
+        jQuery(thisthis).parent().attr("total",0);
+    }
+    // alert('all');
+}
+
+function changeday(thisthis){
+// jQuery(". scheduledata").on('change', ' select', function() {
+    var thismain = jQuery(thisthis).parent().find(".each_slot_start select").eq(0);
+    // alert(thismain.val())
+    if(thismain.val()!='' && thismain.siblings('select').val()!=''){
+        thismain.parent().attr("total",leftPad(thismain.parent().find('select').eq(0).val(), 2)+leftPad(thismain.parent().find('select').eq(1).val()),2);
+        var thisthisall = thismain;
+        thisthisall.parent().parent().addClass("current");
+        jQuery(".input-box > .each_slot").each(function(){
+            // alert(thisthisall.parent().parent().attr('class')+'-'+jQuery(this).attr("class"));
+            // alert((thisthisall.parent().parent().find(".day").val()+'--'+jQuery(this).find(".day").val())+'=='+(jQuery(this).is(':not(.current)')))
+            if((thisthisall.parent().parent().find(".day").val()==jQuery(this).find(".day").val()) && (jQuery(this).is(':not(.current)'))) {
+                if(jQuery(this).find('.each_slot_start').attr("total")<thisthisall.parent().attr("total") && thisthisall.parent().attr("total")<jQuery(this).find('.each_slot_end').attr("total")){
+                    // alert(jQuery(this).find('.each_slot_start').attr("total")+'--'+thisthisall.parent().attr("total")+'--'+jQuery(this).find('.each_slot_end').attr("total"));
+                    alert("Time mismatch");
+                    jQuery(thisthis).val('');
+                    jQuery(thisthis).parent().attr("total",'0');
+                    return;
+                    // thismain.siblings('select').val('');
+                }
+                // alert(thisthisall.parent().parent().attr('class')+'-'+jQuery(this).attr("class"));
+                // alert("tst");
+            }
+        });
+        thisthisall.parent().parent().removeClass("current");
+         // alert('all');
+        if(thismain.parent().parent().find('.each_slot_start').attr("total")>thismain.parent().parent().find('.each_slot_end').attr("total") && thismain.parent().parent().find('.each_slot_end').attr("total")>0){
+            alert("End time should be greater than Start Time");
+            jQuery(thisthis).val('');
+            jQuery(thisthis).parent().attr("total",'0');
+            return;
+            // thismain.siblings('select').val('');
+        }
+    }else{
+        thismain.parent().attr("total",0);
+    }
+    if(thismain.val()!='' && thismain.siblings('select').val()==''){
+        thismain.parent().attr("total",0);
+    }
+    // alert('all');
+}
+
+function leftPad(number, targetLength) {
+    var output = number + '';
+    while (output.length < targetLength) {
+        output = '0' + output;
+    }
+    return output;
+}
+</script>
+<style>
+   .each_slot > * , .extra_slot_data > *{
+        float: left;
+        margin: 6px 15px;
+   }
+   .form-list select{
+    width: auto;
+   }
+   .scheduledata > div > *{
+    clear: both;
+   }
+   .addmore{
+    cursor: pointer;
+    display: table;
+   }
+   .removeslot{
+    cursor: pointer;
+   }
+</style>

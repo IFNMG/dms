@@ -1,0 +1,1 @@
+<span><?=Yii::$app->urlManager->createUrl("index.php/adminuser/admin/resetpassword?id=".$MSG);?></span>
