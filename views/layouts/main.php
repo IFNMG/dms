@@ -113,8 +113,15 @@ img.user-image {
             right:0;
         }
         .navbar-header {
-            margin-right: 40px!important;
+            margin-right: 20px!important;
         }
+
+
+            @media (max-width:767px) {
+                #navbar-collapse .navbar-nav .open .dropdown-menu>li>a {
+                    color: #fff;
+                }
+            }
         </style>
         
  <style>
