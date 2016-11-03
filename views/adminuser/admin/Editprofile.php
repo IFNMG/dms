@@ -207,7 +207,9 @@ $this->params['breadcrumbs'][] = $this->title;
         reader.readAsDataURL(input.files[0]);
     }
 }
- $(document).ready(function() { 
+ $(document).ready(function() {
+
+    $('label[for="adminpersonal-sub_department_id"]').css('width', 'auto');
     setTimeout(function() { 
         $('#roleDropDown').val('<?php echo $role; ?>');  
         $('#roleDropDown').trigger('change');
