@@ -122,6 +122,15 @@ img.user-image {
                     color: #fff;
                 }
             }
+
+            #siteFooter{
+                background: #4270B7;
+                color: #fff;
+            }
+            #siteFooter a {
+                color: #fff;
+                font-weight: bold;
+            }
         </style>
         
  <style>
@@ -323,7 +332,7 @@ img.user-image {
             </div>
 
         <!-- /.content-wrapper -->
-        <footer class="main-footer navnbar navbar-fixed-bottom">
+        <footer id="siteFooter" class="main-footer navnbar navbar-fixed-bottom">
             <div class="container">
               
                    
