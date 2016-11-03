@@ -67,7 +67,7 @@ $this->registerCssFile('@web/css/jquery-ui.css');
             
             <div class="box-header with-border">
                
-                <div style="padding: 15px 0px 0px 20px;" class="row">
+                <div style="margin:0;" class="row">
                     
                     <?php //if($department == 2300001){ ?>
                     <div class="col-lg-2 form-group" style="width: 15%;">
