@@ -64,7 +64,7 @@ $this->registerJsFile('@web/js/bootstrap3-wysihtml5.all.min.js');
                             <div class="my-center" style="margin-top: 17%;">
                                 <input type="text" value="" name="term" id="term" placeholder="SEARCH DOCUMENTS" class="span12">
                                 <input type="submit" value="SEARCH" name="searchbutton" class="customButtons">
-                                <a id="advanceSearch" href="<?php echo Yii::$app->getUrlManager()->createUrl([" index.php/dms/document/list "]); ?>">ADVANCED SEARCH</a>
+                                <a id="advanceSearch" href="<?php echo Yii::$app->getUrlManager()->createUrl(["index.php/dms/document/list "]); ?>">ADVANCED SEARCH</a>
                             </div>
                         </form>
                     </div>
