@@ -131,6 +131,17 @@ img.user-image {
                 color: #fff;
                 font-weight: bold;
             }
+
+            .commanLinkStyle {
+                display: inline-block;
+                line-height: 18px;
+            }
+
+            .alert-dismissible {
+                background: #e5e5e5 !important;
+                margin: 20px auto;
+                color: #000 !important;
+            }
         </style>
         
  <style>
