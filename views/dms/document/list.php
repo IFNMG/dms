@@ -70,7 +70,7 @@ $this->registerCssFile('@web/css/jquery-ui.css');
                 <div style="margin:0;" class="row">
                     
                     <?php //if($department == 2300001){ ?>
-                    <div class="col-lg-2 form-group" style="width: 15%;">
+                    <div class="col-lg-2 form-group formControl7">
                         <label style="margin-right: 10px;">Department</label>
                         <select id="department_id" class="form-control">
                         <?php                            
@@ -94,13 +94,13 @@ $this->registerCssFile('@web/css/jquery-ui.css');
                         <p class="help-block help-block-error"></p>
                     </div-->
                     
-                    <div class="col-lg-2 form-group" style="width: 14%;">
+                    <div class="col-lg-2 form-group formControl7">
                         <label style="margin-right: 10px;">Uploaded By</label>
                         <input type="text" id="uploaded_by" name="" placeholder="Uploaded By" class="form-control">
                         <p class="help-block help-block-error"></p>
                     </div>
                     
-                    <div class="col-lg-2 form-group" style="width: 15%;">
+                    <div class="col-lg-2 form-group formControl7">
                         <label style="margin-right: 10px;">Document Type</label>
                         <select id="document_type" class="form-control">
                         <?php                            
@@ -117,20 +117,20 @@ $this->registerCssFile('@web/css/jquery-ui.css');
                         <p class="help-block help-block-error"></p>
                     </div>
                     
-                    <div class="col-lg-2 form-group agreement" style="width: 15%;">
+                    <div class="col-lg-2 form-group agreement formControl7">
                         <label style="margin-right: 10px;">Vendor</label>
                         <input type="text" id="vendor_id" name="" placeholder="Vendor Name" class="form-control">
                         <input type="hidden" id="vendor_id_hidden">
                         <p class="help-block help-block-error"></p>
                     </div>
                     
-                    <div class="col-lg-2 form-group" style="width: 13%;">
+                    <div class="col-lg-2 form-group formControl7">
                         <label style="margin-right: 10px;">Valid From</label>
                         <input type="text" id="valid_from" name="" placeholder="From Date" class="form-control" readonly="readonly" >
                         <p class="help-block help-block-error"></p>
                     </div>
                     
-                    <div class="col-lg-2 form-group" style="width: 13%;">
+                    <div class="col-lg-2 form-group formControl7">
                         <label style="margin-right: 10px;">Valid Till</label>
                         <input type="text" id="valid_till" name="" placeholder="To Date" class="form-control" readonly="readonly" >
                         <p class="help-block help-block-error"></p>
@@ -140,7 +140,7 @@ $this->registerCssFile('@web/css/jquery-ui.css');
                     
                     
                     
-                    <div class="col-lg-1 form-group" style="width: 12%;">
+                    <div class="col-lg-1 form-group formControl7" style="min-width:183px !important;">
                         <label style="margin-right: 10px;">Status</label>
                         <?php
                         $statusList = \app\models\Lookups::find()->select(['id', 'value'])->orderBy(['id' => SORT_ASC])->andWhere(['is_delete'=>1, 'type'=>51])->all();
@@ -167,8 +167,8 @@ $this->registerCssFile('@web/css/jquery-ui.css');
                     </div-->
                     <?php //} ?>
                     
-                    <a id="viewList" style="padding:11px 12px; margin-top: 26px; " class="btn my-btn ">Search</a>
-                    <a onclick="reset();" style="padding:11px 12px; margin-top: 26px; " class="btn my-btn ">Reset</a>
+                    <a id="viewList" style="margin-top:25px;" class="btn my-btn commanLinkStyle">Search</a>
+                    <a onclick="reset();" style="margin-top:25px;" class="btn my-btn commanLinkStyle">Reset</a>
                 </div>
                 
                 
