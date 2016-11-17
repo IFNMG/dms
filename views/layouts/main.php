@@ -124,7 +124,7 @@ img.user-image {
             }
 
             #siteFooter{
-                background: #000;
+                background: #333333;
                 color: #fff;
             }
             #siteFooter a {
@@ -170,7 +170,7 @@ img.user-image {
 
             <header class="main-header">
                 
-                <nav class="navbar navbar-static-top" style="background: #000">
+                <nav class="navbar navbar-static-top" style="background: #333333">
                     <div class="container">
                         <div class="navbar-header">
                             
