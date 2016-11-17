@@ -114,7 +114,7 @@ $this->registerCssFile('@web/css/jquery-ui.css');
                         </div>
                         <?php //} ?>
 
-                        <div class="col-lg-2 form-group document1 document4" style="width: 15%;">
+                        <div class="col-lg-2 form-group document1 document4">
                             <label style="margin-right: 10px;">Vendor</label>
                             <input type="text" id="vendor_id" name="vendor_id" placeholder="Vendor Name" class="form-control">
                             <input type="hidden" id="vendor_id_hidden" name="vendor_id_hidden">
