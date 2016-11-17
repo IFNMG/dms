@@ -1,6 +1,7 @@
 html,
 body {
     height: 100%;
+    font-family: Segoe Ui !important;
 }
 
 .wrap {
@@ -99,6 +100,7 @@ a.desc:after {
 }
 body.manage-config {
     overflow-y: scroll;
+}
 /*---------------------Styles by Hiten 13/04/16----------------------*/
 table.dataTable thead th, table.dataTable td {
     padding: 8px 10px!important;
@@ -175,10 +177,10 @@ input[type=search] {
 .dataTables_length label {
     font-weight: normal;
 }
-.btn-success {
+/*.btn-success {
     background-color: #00a65a;
     background: -webkit-gradient(linear, 0% 50%, 0% 0%, from(#00a65a), to(#1a2226))!important;
-    /* background: -webkit-linear-gradient(top, #1a2226, #3C8DBC); */
+     background: -webkit-linear-gradient(top, #1a2226, #3C8DBC);
     background: -moz-linear-gradient(top, #1a2226, #00a65a)!important;
     background: -ms-linear-gradient(top, #1a2226, #00a65a)!important;
     background: -o-linear-gradient(top, #1a2226, #00a65a)!important;
@@ -186,11 +188,11 @@ input[type=search] {
 .btn-primary {
     background-color: #367fa9;
     background: -webkit-gradient(linear, 0% 50%, 0% 0%, from(#367fa9), to(#1a2226))!important;
-    /* background: -webkit-linear-gradient(top, #1a2226, #3C8DBC); */
+     background: -webkit-linear-gradient(top, #1a2226, #3C8DBC);
     background: -moz-linear-gradient(top, #1a2226, #367fa9)!important;
     background: -ms-linear-gradient(top, #1a2226, #367fa9)!important;
     background: -o-linear-gradient(top, #1a2226, #367fa9)!important;
-}
+}*/
 .box.box-default {
     border-top-color: #3C8DBC!important;
 }
@@ -200,4 +202,10 @@ input[type=search] {
 .nav>li>a:hover {
     text-decoration: none;
     background-color: #262A6A !important;
+}
+
+
+#listing-table_wrapper, .tableDiv {
+    padding: 10px;
+    overflow: auto;
 }

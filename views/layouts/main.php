@@ -124,7 +124,7 @@ img.user-image {
             }
 
             #siteFooter{
-                background: #4270B7;
+                background: #000;
                 color: #fff;
             }
             #siteFooter a {
@@ -170,7 +170,7 @@ img.user-image {
 
             <header class="main-header">
                 
-                <nav class="navbar navbar-static-top" style="background: #4270B7">
+                <nav class="navbar navbar-static-top" style="background: #000">
                     <div class="container">
                         <div class="navbar-header">
                             
@@ -349,8 +349,8 @@ img.user-image {
                    
                 
                     <?php echo \Yii::t('app', 'Powered By |')?>
-                    <a href="http://www.spdynamics.net/" target="_balnk"><?php echo \Yii::t('app', 'SP Dynamics ')?></a>
-                    <?php echo \Yii::t('app', ' | SP Dynamics ')?>
+                    <a href="#" target="_balnk"><?php echo \Yii::t('app', 'DMS')?></a>
+                    <?php echo \Yii::t('app', ' | DMS ')?>
                         
              
                 <?php echo \Yii::t('app', 'All rights reserved.')?><br>

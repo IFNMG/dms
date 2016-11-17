@@ -4806,7 +4806,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
 .nav>li>a:focus,
 .nav>li>a:hover {
     text-decoration: none;
-    background-color: #262A6A;
+    background-color: #A2A2A2;
 }
 
 .nav>li.disabled>a {
@@ -4825,7 +4825,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
 .nav .open>a:focus,
 .nav .open>a:hover {
     background-color: #eee;
-    background-color: #262A6A;
+    background-color: #A9A9A9;
 }
 
 .nav .nav-divider {
