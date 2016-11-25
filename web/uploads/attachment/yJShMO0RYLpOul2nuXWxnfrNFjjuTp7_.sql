@@ -281,11 +281,11 @@ CREATE TABLE IF NOT EXISTS `emailhistory` (
 --
 
 INSERT INTO `emailhistory` (`Id`, `EmailId`, `Status`, `Subject`, `Body`, `Attempts`, `SenderEmail`, `SentOn`) VALUES
-(5, 'waseem.khan@claritusconsulting.com', 20002, 'Forgot password mail', 'Your new password is q&lj,^', 1, 'waseemkhan753@gmail.com', '2016-03-02 01:07:33'),
-(6, 'abc@gmail.com', 20002, 'Forgot password mail', 'Your new password is K=F%xe', 1, 'waseemkhan753@gmail.com', '2016-03-15 09:30:42'),
-(7, 'abc@gmail.com', 20002, 'Forgot password mail', 'Your new password is KYIs2%', 1, 'waseemkhan753@gmail.com', '2016-03-15 09:39:52'),
-(8, 'r@g.com', 20002, 'Forgot password mail', 'Your new password is Jb:Py_', 1, 'waseemkhan753@gmail.com', '2016-04-21 11:37:01'),
-(9, 'r@g.com', 20002, 'Forgot password mail', 'Your new password is Wtk#Tz', 1, 'waseemkhan753@gmail.com', '2016-04-21 11:37:03');
+(5, 'siddharth.k@spdynaics.net', 20002, 'Forgot password mail', 'Your new password is q&lj,^', 1, 'siddharth.k@spdynaics.net', '2016-03-02 01:07:33'),
+(6, 'abc@gmail.com', 20002, 'Forgot password mail', 'Your new password is K=F%xe', 1, 'siddharth.k@spdynaics.net', '2016-03-15 09:30:42'),
+(7, 'abc@gmail.com', 20002, 'Forgot password mail', 'Your new password is KYIs2%', 1, 'siddharth.k@spdynaics.net', '2016-03-15 09:39:52'),
+(8, 'r@g.com', 20002, 'Forgot password mail', 'Your new password is Jb:Py_', 1, 'siddharth.k@spdynaics.net', '2016-04-21 11:37:01'),
+(9, 'r@g.com', 20002, 'Forgot password mail', 'Your new password is Wtk#Tz', 1, 'siddharth.k@spdynaics.net', '2016-04-21 11:37:03');
 
 -- --------------------------------------------------------
 
@@ -499,7 +499,7 @@ INSERT INTO `user` (`Id`, `FirstName`, `LastName`, `Email`, `Password`, `IsActiv
 (47, 'w', 'w', 'w@y.com', '$2y$13$mcnccdwkiPW13HzdvVAgWuYN8Sufo974ufP0BUg/pCwi5Uc3ww/.a', 1, 0, 1, 1, '2016-02-29 13:00:47', NULL, NULL),
 (49, 'ankit', 'ojshi', 'ankit@yahoo.com', '$2y$13$R90.E6ZwpPNC6o8g0S1fxOcyYbsDCuQjPt54q6UZloLqhRgR06xuu', 1, 0, 1, 1, '2016-03-01 07:05:23', NULL, NULL),
 (50, 'abc', '', 'abc@yahoo.com', '$2y$13$VSGZLBzslMYMF7DC8pqZGup9Hr3E17oDLU.k9jzflTNJXObmNunJq', 1, 0, 1, 1, '2016-03-01 07:17:48', NULL, NULL),
-(52, 'Test', 'etst', 'waseem.khan@claritusconsulting.com', '$2y$13$RTXMyo8gpKSX2DoGoIlr5OiQyR7a8bBb1DjwI8/ho/iGfV9IL91Iy', 1, 0, 1, 1, '2016-03-02 12:24:37', NULL, NULL),
+(52, 'Test', 'etst', 'siddharth.k@spdynaics.net', '$2y$13$RTXMyo8gpKSX2DoGoIlr5OiQyR7a8bBb1DjwI8/ho/iGfV9IL91Iy', 1, 0, 1, 1, '2016-03-02 12:24:37', NULL, NULL),
 (53, 'waseem', 'khan', 'waseem@yahoo.com', '$2y$13$SROgjHsRr38/p5PkWc/jUeOEZ.An45xJdAshSWKLIfTq2QFoaDdHi', 1, 0, 1, 1, '2016-03-10 06:56:55', NULL, NULL),
 (54, 'anjan', 'dutta', 'anjan@claritus.com', '$2y$13$JzZGFbm5xWQLR3xro7TDIeZyrFU9HB7nOcrMaikT9vNP4susw9a4q', 1, 0, 1, 1, '2016-03-10 08:55:00', NULL, NULL),
 (55, 'abc', 'def', 'abc@gmail.com', '$2y$13$HLkLR/fvg0ayAG0So4t/euoFXolJkhYWFFrAny1bmsVBgiEJfL36.', 1, 0, 1, 1, '2016-03-11 06:20:02', NULL, NULL),

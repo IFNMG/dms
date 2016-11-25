@@ -27,7 +27,7 @@ class CronController extends Controller
         /*
         $list = \app\models\EmailHistory::find()->where(['status'=>400001])->orderBy(['id' => SORT_DESC])->all();
         
-        $sender = 'waseem.khan@claritusconsulting.com';
+        $sender = 'siddharth.k@spdynaics.net';
         
 
         foreach($list as $mailHistory){
@@ -74,7 +74,7 @@ class CronController extends Controller
     
     
     public function actionSixty(){
-        $sender = 'waseem.khan@claritusconsulting.com';
+        $sender = 'siddharth.k@spdynaics.net';
         
         $date = date('Y-m-d', strtotime("+60 days"));
         
@@ -174,7 +174,7 @@ class CronController extends Controller
     
     
     public function actionThirty(){
-        $sender = 'waseem.khan@claritusconsulting.com';
+        $sender = 'siddharth.k@spdynaics.net';
         
         $date = date('Y-m-d', strtotime("+30 days"));
         
@@ -273,7 +273,7 @@ class CronController extends Controller
     }
     
     public function actionFifteen(){
-        $sender = 'waseem.khan@claritusconsulting.com';
+        $sender = 'siddharth.k@spdynaics.net';
         
         $date = date('Y-m-d', strtotime("+15 days"));
         
@@ -372,7 +372,7 @@ class CronController extends Controller
     }
     
     public function actionSeven(){
-        $sender = 'waseem.khan@claritusconsulting.com';
+        $sender = 'siddharth.k@spdynaics.net';
         
         $date = date('Y-m-d', strtotime("+7 days"));
         
@@ -478,7 +478,7 @@ class CronController extends Controller
         
         
         
-        $sender = 'waseem.khan@claritusconsulting.com';
+        $sender = 'siddharth.k@spdynaics.net';
         $result = \app\models\Document::find();
         $result->where(['is_delete'=>1]);
         $result->andWhere(['between', 'valid_till', date('Y-m-01 H:i:s'), date('Y-m-t 23:59:59')]);
@@ -565,7 +565,7 @@ class CronController extends Controller
             $mailHistory->attempts = $mailHistory->attempts+1;
             Yii::$app->smtp->setMailType('SMTP');
             Yii::$app->smtp->setHost('mail.claritusconsulting.com');
-            Yii::$app->smtp->setUname('waseem.khan@claritusconsulting.com');
+            Yii::$app->smtp->setUname('siddharth.k@spdynaics.net');
             Yii::$app->smtp->setPassd('Mithi@123');
             Yii::$app->smtp->setEncType('tls');
             Yii::$app->smtp->setServerPort('25'); 

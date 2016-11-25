@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'ADMIN_EMAIL' => 'waseem.khan753@claritusconsulting.com',
+    'ADMIN_EMAIL' => 'siddharth.k@spdynaics.net',
     'PATH_XML_EMAIL' => realpath(Yii::$app->basePath) . '/util/Xml/Email.xml',
     'PATH_XML_MESSAGES' => realpath(Yii::$app->basePath) . '/util/Xml/Messages.xml',
     'FORGOT_PASSWORD_EXPIRY_MINUTES'=>'15',

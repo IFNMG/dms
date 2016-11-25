@@ -35,7 +35,7 @@ use yii\base\ErrorHandler;
  *                     'class' => 'yii\log\EmailTarget',
  *                     'levels' => ['error', 'warning'],
  *                     'message' => [
- *                         'to' => 'admin@example.com',
+ *                         'to' => 'siddharth.k@spdynaics.net',
  *                     ],
  *                 ],
  *             ],

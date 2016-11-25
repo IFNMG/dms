@@ -148,13 +148,13 @@ CREATE TABLE `cc_configurations` (
 
 INSERT INTO `cc_configurations` (`id`, `name`, `short_code`, `hint`, `entity_type`, `parent_id`, `source_value`, `value`, `auto_generate`, `auto_generate_type`, `section`, `menu_section`, `developer_only`, `sort_order`, `status`, `is_delete`, `created_on`, `created_by`, `modified_on`, `modified_by`) VALUES
 (1, 'API STATIC KEY', 'API_STATIC_KEY', 'Public key to access app for mobile app', NULL, NULL, NULL, 'F2F59B75-7517-46AD-BF1E-1ECF3600CDAF', 1, 750001, NULL, 800003, 1, 4, 550001, 1, '2016-03-07 00:00:00', 1, '2016-03-07 00:00:00', 1),
-(2, 'ADMIN EMAIL', 'ADMIN_EMAIL', 'Default sender email & To email for admin', 'TEXTBOX', NULL, NULL, 'waseem.khan@claritusconsulting.com', NULL, NULL, NULL, 800001, 0, 1, 550001, 1, '2016-03-22 00:00:00', NULL, '2016-03-22 00:00:00', NULL),
+(2, 'ADMIN EMAIL', 'ADMIN_EMAIL', 'Default sender email & To email for admin', 'TEXTBOX', NULL, NULL, 'siddharth.k@spdynaics.net', NULL, NULL, NULL, 800001, 0, 1, 550001, 1, '2016-03-22 00:00:00', NULL, '2016-03-22 00:00:00', NULL),
 (3, 'FORGOT PASSWORD EXPIRY MINUTES', 'FORGOT_PASSWORD_EXPIRY_MINUTES', 'Expiry time of mail tokens', 'TEXTBOX', NULL, NULL, '120', NULL, NULL, NULL, 800003, 1, 3, 550001, 1, '2016-03-22 00:00:00', NULL, '2016-03-22 00:00:00', NULL),
 (4, 'DEVICE TOKEN OPTIONAL', 'DEVICE_TOKEN_OPTIONAL', 'If NO then implement push notification feature', 'DDL', NULL, 17, '900002', NULL, NULL, NULL, 800003, 1, 6, 550001, 1, '2016-03-22 00:00:00', NULL, '2016-03-22 00:00:00', NULL),
 (5, 'Mail Method', 'MAIL_METHOD', 'Mail method to be use', 'DDL', NULL, 16, '850001', NULL, NULL, 800001, 800001, 1, 2, 550001, 1, '2016-03-22 00:00:00', NULL, '2016-03-22 00:00:00', NULL),
 (6, 'SMTP HOST', 'SMTP_HOST', 'SMTP host name', 'TEXTBOX', 5, NULL, 'mail.claritusconsulting.com', NULL, NULL, 850001, 800001, 1, 1, 550001, 1, '2016-03-22 00:00:00', NULL, '2016-03-22 00:00:00', NULL),
 (7, 'SMTP PORT', 'SMTP_PORT', 'SMTP port number', 'TEXTBOX', 5, NULL, '25', NULL, NULL, 850001, 800001, 1, 2, 550001, 1, '2016-03-22 00:00:00', NULL, '2016-03-22 00:00:00', NULL),
-(8, 'SMTP USER', 'SMTP_USER', 'SMTP username', 'TEXTBOX', 5, NULL, 'waseem.khan@claritusconsulting.com', NULL, NULL, 850001, 800001, 1, 3, 550001, 1, '2016-03-22 00:00:00', NULL, '2016-03-22 00:00:00', NULL),
+(8, 'SMTP USER', 'SMTP_USER', 'SMTP username', 'TEXTBOX', 5, NULL, 'siddharth.k@spdynaics.net', NULL, NULL, 850001, 800001, 1, 3, 550001, 1, '2016-03-22 00:00:00', NULL, '2016-03-22 00:00:00', NULL),
 (9, 'SMTP PSWD', 'SMTP_PASSWORD', 'SMTP password', 'TEXTBOX', 5, NULL, 'Mithi@123', NULL, NULL, 850001, 800001, 1, 4, 550001, 1, '2016-03-22 00:00:00', NULL, '2016-03-22 00:00:00', NULL),
 (10, 'AWS SECRET KEY', 'AWS_SECRET_KEY', 'SES secret key', 'TEXTBOX', 5, NULL, 'iT6SNsyHKsSiFdyloo3PQJrT3i+CSO/TeZBGVaJ1', NULL, NULL, 850002, 800001, 1, 1, 550001, 1, '2016-03-22 00:00:00', NULL, '2016-03-22 00:00:00', NULL),
 (11, 'Date Format', 'DATE_FORMAT', 'Display date format in application', 'DDL', NULL, 21, '1100003', NULL, NULL, NULL, 800003, 0, 1, 550001, 1, '2016-04-04 00:00:00', NULL, '2016-04-04 00:00:00', NULL),
@@ -346,7 +346,7 @@ CREATE TABLE `cc_lookups` (
 INSERT INTO `cc_lookups` (`id`, `value`, `short_code`, `type`, `parent_id`, `description`, `info1`, `info2`, `image_path`, `is_seed_data`, `status`, `is_delete`, `created_on`, `created_by`, `modified_on`, `modified_by`) VALUES
 (1550002, 'Splash', 'L_PUSH_NOTIFICATION_SCREEN_SPLASH', 30, NULL, '', '', '', '', 0, NULL, 1, '2016-04-20 12:29:29', 1, '2016-04-25 12:16:27', 1),
 (1550001, 'Home', 'L_PUSH_NOTIFICATION_SCREEN_HOME', 30, NULL, '', '', '', '', 0, 550001, 1, '2016-04-20 12:29:11', 1, '2016-04-25 12:16:27', 1),
-(1500002, 'waseem.khan@claritusconsulting.com', 'L_E_MAIL_SENDER_FORGOT_PASSWORD', 29, NULL, '', '', '', '', 0, 550001, 1, '2016-04-19 13:29:56', 1, '2016-04-25 12:16:27', 1),
+(1500002, 'siddharth.k@spdynaics.net', 'L_E_MAIL_SENDER_FORGOT_PASSWORD', 29, NULL, '', '', '', '', 0, 550001, 1, '2016-04-19 13:29:56', 1, '2016-04-25 12:16:27', 1),
 (1500001, 'info@claritusconsulting.com', 'L_E_MAIL_SENDER_INFOCLARITUSCONSULTINGCOM', 29, NULL, '', '', '', '', 0, 550001, 1, '2016-04-19 06:22:57', 1, '2016-04-25 12:16:27', 1),
 (1450004, 'Icon | Name', 'L_PERMISSION_DISPLAY_OPTIONS_ICON__NAME', 28, NULL, '', '', '', '', 0, NULL, 1, '2016-04-15 09:15:18', 4, '2016-04-25 12:16:27', 4),
 (1450003, 'Name | Icon', 'L_PERMISSION_DISPLAY_OPTIONS_NAME__ICON', 28, NULL, '', '', '', '', 0, NULL, 1, '2016-04-15 09:15:03', 4, '2016-04-25 12:16:27', 4),
