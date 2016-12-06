@@ -13,6 +13,44 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 
+<style>
+    .space-bottom:after {
+        content: "";
+        display: inline-block;
+        clear: both;
+    }
+    .text-muted {
+        display: inline-block;
+        float: left;
+        width: 49%;
+        margin-right: 2%;
+        margin-bottom: 10px;
+    }
+    .text-muted:nth-of-type(even) {
+        margin-right: 0;
+    }
+    .my-title {
+        display: inline-block;
+        float: left;
+        width: 49%;
+        margin-right: 2%;
+        font-weight: bold;
+    }
+    .my-info {
+        display: inline-block;
+        float: left;
+        width: 49%;
+    }
+
+    @media screen and (max-width:768px) {
+        .text-muted {
+            float: none;
+            width: 100%;
+            margin-right: 0;
+        }
+    }
+</style>
+
 <!-- <div class="container"> -->
     <!-- Content Header (Page header) -->
     <section class="content-header">
